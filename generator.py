@@ -6,7 +6,7 @@ import pickle
 
 def parsing_arguments():
     parser = argparse.ArgumentParser(description='Synthetic data generation')
-    parser.add_argument('-c', '--config', type=str, help='Path to config file', default="config.json")
+    parser.add_argument('-c', '--config', type=str, help='Path to config file', default="Generator/config.json")
     parser.add_argument('-o', '--output', type=str, help='Path to output file', default="generated_shapes.pkl")
     parser.add_argument('-l', '--limit', type=int, help='Measurement limit', default=10)
     parser.add_argument('-g', '--debug', action='store_true', help='Run debug mode')

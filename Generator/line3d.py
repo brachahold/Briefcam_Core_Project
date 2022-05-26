@@ -1,3 +1,7 @@
+"""
+NOT IMPLEMENTED!!!!
+"""
+
 from Generator.geometry import Geometry
 import random
 import numpy as np
@@ -12,6 +16,14 @@ class Line3D(Geometry):
             direction = np.random.rand(3) * 6 - 6 / 2
         self.__point = point
         self.__direction = direction / np.linalg.norm(direction)  # normalize
+
+    @property
+    def point(self):
+        return self.__point
+
+    @property
+    def direction(self):
+        return self.__direction
 
     def get_plt_geo(self):
         return plt.axline((self.__point[0], self.__point[1]), slope=self.__get_slope(), color='r')

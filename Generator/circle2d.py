@@ -14,6 +14,14 @@ class Circle2D(Geometry):
         self.__radius = radius
         self.__center = center
 
+    @property
+    def radius(self):
+        return self.__radius
+
+    @property
+    def center(self):
+        return self.__center
+
     def get_plt_geo(self):
         return plt.Circle((self.__center[0], self.__center[1]), self.__radius, color='r', fill=False)
 

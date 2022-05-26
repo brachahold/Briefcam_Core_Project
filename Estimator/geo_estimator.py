@@ -1,25 +1,36 @@
 from abc import ABC, abstractmethod
-import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 class GeoEstimator(ABC):
     def __init__(self, x_data, y_data, n):
-        self.x_data = x_data
-        self.y_data = y_data
-        self.n = n
-        self.d_min = float('inf')
-        self.best_model = None
+        self.__x_data = x_data
+        self.__y_data = y_data
+        self.__n = n
+        self.__d_min = float('inf')
+        self.__best_model = None
+
+    @property
+    def best_model(self):
+        return self.__best_model
+
+    @property
+    def x_data(self):
+        return self.__x_data
+
+    @property
+    def y_data(self):
+        return self.__y_data
 
     def random_sampling(self, n):
         sample = []
         save_ran = []
         count = 0
         while True:
-            ran = np.random.randint(len(self.x_data))
+            ran = np.random.randint(len(self.__x_data))
             if ran not in save_ran:
-                sample.append((self.x_data[ran], self.y_data[ran]))
+                sample.append((self.__x_data[ran], self.__y_data[ran]))
                 save_ran.append(ran)
                 count += 1
                 if count == n:
@@ -28,17 +39,17 @@ class GeoEstimator(ABC):
 
     def execute_estimator(self):
         # find best model
-        for i in range(self.n):
+        for i in range(self.__n):
             model = self.find_model(self.random_sampling(self.num_points_per_model))
             d_temp = self.eval_model(model)
-            if self.d_min > d_temp:
-                self.best_model = model
-                self.d_min = d_temp
+            if self.__d_min > d_temp:
+                self.__best_model = model
+                self.__d_min = d_temp
 
     def plot(self):
         ax = plt.gca()
         ax.cla()
-        plt.scatter(self.x_data, self.y_data, c='blue', marker='o', label='data')
+        plt.scatter(self.__x_data, self.__y_data, c='blue', marker='o', label='data')
         ax.add_patch(self.get_plt_geo())
         plt.show()
 
