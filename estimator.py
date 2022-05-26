@@ -32,10 +32,10 @@ def main():
         ransac.execute_estimator()
         if debug_mode:
             ransac.plot()
-        shapes.append(shape)
+        shapes.append(ransac)
 
     with open(output_path, 'wb') as f:
-        pickle.dump(ransac, f)
+        pickle.dump(shapes, f)
 
 
 if __name__ == '__main__':

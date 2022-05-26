@@ -1,11 +1,11 @@
-from Generator.geometry import Geometry
+from Generator.geo_generator import GeoGenerator
 import random
 from math import sqrt, pi, cos, sin
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-class Circle2D(Geometry):
+class Circle2D(GeoGenerator):
     def __init__(self, center=None, radius=None):
         super().__init__()
         if radius is None:

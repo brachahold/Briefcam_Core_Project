@@ -2,13 +2,13 @@
 NOT IMPLEMENTED!!!!
 """
 
-from Generator.geometry import Geometry
+from Generator.geo_generator import GeoGenerator
 import random
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-class Line3D(Geometry):
+class Line3D(GeoGenerator):
     def __init__(self, point=None, direction=None):
         super().__init__()
         if direction is None:
@@ -29,8 +29,8 @@ class Line3D(Geometry):
         return plt.axline((self.__point[0], self.__point[1]), slope=self.__get_slope(), color='r')
 
     def get_rand_point_on_geometry(self):
-        t = random.uniform(-10, 10)
-        return self.__point + t * self.__direction
+        p = random.uniform(-10, 10)
+        return self.__point + p * self.__direction
 
     def __get_slope(self):
         p = self.__point + self.__direction

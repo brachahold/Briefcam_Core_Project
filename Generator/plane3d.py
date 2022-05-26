@@ -2,13 +2,13 @@
 NOT IMPLEMENTED!!!!
 """
 
-from Generator.geometry import Geometry
+from Generator.geo_generator import GeoGenerator
 import random
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-class Plane3D(Geometry):
+class Plane3D(GeoGenerator):
     def __init__(self, point=None, direction=None):
         super().__init__()
         if direction is None:

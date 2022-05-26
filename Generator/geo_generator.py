@@ -5,7 +5,7 @@ from math import sqrt
 import matplotlib.pyplot as plt
 
 
-class Geometry(ABC):
+class GeoGenerator(ABC):
     def __init__(self):
         self.__points = []
 
