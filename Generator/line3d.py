@@ -1,4 +1,3 @@
-from geometry import Geometry
 from Generator.geometry import Geometry
 import random
 import numpy as np

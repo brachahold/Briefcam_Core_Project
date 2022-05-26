@@ -3,6 +3,7 @@ from Generator.line2d import Line2D
 from Generator.line3d import Line3D
 from Generator.plane3d import Plane3D
 
+
 class Factory:
     def __init__(self):
         self.__classes = {

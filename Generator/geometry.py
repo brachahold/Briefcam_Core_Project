@@ -45,3 +45,7 @@ class Geometry(ABC):
     @abstractmethod
     def get_prpendicular(self, p):
         raise NotImplementedError("Must override get_prpendicular")
+
+    @abstractmethod
+    def get_plt_geo(self):
+        raise NotImplementedError("Must override get_plt_geo")
